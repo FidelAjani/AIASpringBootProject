@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insuree Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous"
+	>
+</head>
+<body>
+	<div class="container">
+		<h1>Insuree Management System</h1>
+		<hr>
+		<h2>Save Insuree</h2>
+
+		<form action="#" th:action="@{/saveInsuree}" th:object="${insuree}"
+			method="POST">
+			<div class="select">
+				<label for="cars" ></label>
+				
+				<select name="cars" id="cars" >
+				<option value="">--Insurance Type--</option>
+  				<option value="auto">Auto</option>
+  				<option value="life">Life</option>
+  				<option value="home">Home</option>
+  				<option value="renters">Renters </option>
+  				<option value="umbrella">Umbrella </option>
+  				<option value="health">Health </option>
+  				<option value="disability">Disability </option>
+  				<option value="long-term-care">Long-Term Care </option>
+				</select>
+				</div>
+				
+			
+				<input type="text" th:field="*{firstName}"
+				placeholder="Insuree First Name" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{lastName}"
+				placeholder="Insuree Last Name" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{email}"
+				placeholder="Insuree Email" class="form-control mb-4 col-4">
+								
+				<input type="text" th:field="*{policyNumber}"
+				placeholder=" Policy Number" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{address}"
+				placeholder="Address" class="form-control mb-4 col-4">
+				
+				
+				
+				<button type="submit" class="btn btn-info col-2"> Save Insuree</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href="@{/}"> Back to Insuree List</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insuree Management System</title>
+    
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class="container my-2">
+<h1>Insuree List</h1>
+    <a th:href = "@{/showNewInsureeForm}" class = "btn btn-primary btn-sm mb-3"> Add Insuree </a>
+    <table class = "table table-striped table-responsive-md">
+    
+        <thead>
+        <tr>
+            <th>Insuree First Name</th>
+            <th>Insuree Last Name</th>
+            <th>Insuree E-Mail</th>
+            <th>Insuree Insurance Type</th>
+            <th>Insuree Policy Number</th>
+            <th>Insuree Address</th>
+            <th> Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+				<tr th:each="insuree : ${listInsurees}">
+					<td th:text="${insuree.firstName}"></td>
+					<td th:text="${insuree.lastName}"></td>
+					<td th:text="${insuree.email}"></td>
+					<td th:text="${insuree.insuranceType}"></td>
+					<td th:text="${insuree.policyNumber}"></td>
+					<td th:text="${insuree.address}"></td>
+					<td> <a th:href="@{/showFormForUpdate/{id}(id=${insuree.id})}" class="btn btn-primary">Update</a></td>
+					<td> <a th:href="@{/deleteInsuree/{id}(id=${insuree.id})}" class="btn btn-danger">Delete</a></td>
+				</tr>
+			</tbody>
+    </table>
+</div>
+
+</body>
+</html>

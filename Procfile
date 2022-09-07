@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/aia-springboot-project.jar
+web: java -Dserver.port=$PORT -jar target/AIASpringBootProject.jar
